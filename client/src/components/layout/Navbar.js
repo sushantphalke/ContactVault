@@ -1,6 +1,6 @@
 import React, { Fragment, useContext } from 'react';
 import PropTypes from 'prop-types';
-import { FaHome, FaSignOutAlt } from 'react-icons/fa';
+import {  FaSignOutAlt } from 'react-icons/fa';
 import { MdAssignmentInd } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import AuthContext from '../../context/auth/authContext';

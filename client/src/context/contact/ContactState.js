@@ -15,12 +15,12 @@ import {
     CONTACT_ERROR,
 } from '../types';
 const ContactState = (props) => {
-    const initialState = {
-        contacts: null,
-        current: null,
-        filtered: null,
-        error: null,
-    };
+        const initialState = {
+            contacts: null,
+            current: null,
+            filtered: null,
+            error: null,
+        };
 
     const [state, dispatch] = useReducer(contactReducer, initialState);
 

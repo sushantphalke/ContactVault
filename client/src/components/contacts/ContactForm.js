@@ -10,7 +10,7 @@ const ContactForm = () => {
         phone: '',
         type: 'Personal',
     });
-    const { name, email, phone,address, type } = contact;
+    const { name, email, phone, address, type } = contact;
     const { addContact, current, updateContact, clearCurrent } = contactContext;
 
     useEffect(() => {
@@ -75,7 +75,6 @@ const ContactForm = () => {
                 onChange={onChange}
                 minLength='8'
                 maxLength='10'
-                
             />
             <input
                 type='text'

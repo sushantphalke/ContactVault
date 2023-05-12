@@ -28,7 +28,6 @@ const App = () => {
                             <div className='container'>
                                 <Alerts />
                                 <Switch>
-                                    
                                     <Route
                                         exact
                                         path='/'

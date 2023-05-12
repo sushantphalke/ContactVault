@@ -10,6 +10,7 @@ import {
     FILTER_CONTACTS,
     CONTACT_ERROR,
 } from '../types';
+// eslint-disable-next-line
 export default (state, action) => {
     switch (action.type) {
         case GET_CONTACTS:
@@ -75,6 +76,7 @@ export default (state, action) => {
                 filtered: null,
             };
         case CONTACT_ERROR:
+// eslint-disable-next-line
             return {
                 ...state,
                 error: action.playload,

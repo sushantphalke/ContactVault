@@ -4,6 +4,7 @@ import {
     MdPhoneInTalk,
     MdOutlineStarOutline,
     MdHome,
+    MdChat,
 } from 'react-icons/md';
 import { BsTrash, BsVectorPen } from 'react-icons/bs';
 import ContactContext from '../../context/contact/contactContext';
@@ -11,7 +12,7 @@ import ContactContext from '../../context/contact/contactContext';
 export const ContactItem = ({ contact }) => {
     const contactContext = useContext(ContactContext);
     const { deleteContact, setCurrent, clearCurrent } = contactContext;
-    const { _id, name, email, phone,address, type } = contact;
+    const { _id, name, email, phone, address, type } = contact;
 
     const onDelete = () => {
         deleteContact(_id);
@@ -63,21 +64,79 @@ export const ContactItem = ({ contact }) => {
                 {email && (
                     <li className='list-item'>
                         <div>
-                            <MdOutgoingMail
-                                style={{ fontSize: '150%', color: 'blue' }}
-                            />
+                            <a href={`mailto:${email}`}>
+                                {' '}
+                                <MdOutgoingMail
+                                    style={{ fontSize: '150%', color: 'blue' }}
+                                />
+                            </a>
                         </div>
-                        <div> {email}</div>
+                        <div>
+                            <a href={`mailto:${email}`}> {email}</a>
+                        </div>
                     </li>
                 )}
                 {phone && (
                     <li className='list-item'>
                         <div>
-                            <MdPhoneInTalk
-                                style={{ fontSize: '150%', color: 'green' }}
-                            />
+                            <a href={`tel:${phone}`}>
+                                <MdPhoneInTalk
+                                    style={{ fontSize: '150%', color: 'green' }}
+                                />
+                            </a>
                         </div>
-                        <div>{phone}</div>
+
+                        <div>
+                            <a href={`tel:${phone}`}> {phone}</a>
+                        </div>
+                    </li>
+                )}
+                {phone && (
+                    <li className='list-item'>
+                        <div>
+                            <a href={`whatsapp://call?number=${phone}`}>
+                                <MdPhoneInTalk
+                                    style={{ fontSize: '150%', color: 'green' }}
+                                />
+                            </a>
+                        </div>
+
+                        <div>
+                            <a href={`whatsapp://call?number=${phone}`}>
+                                WhatsApp Call
+                            </a>
+                        </div>
+                    </li>
+                )}
+                {phone && (
+                    <li className='list-item'>
+                        <div>
+                            <a
+                                href={`https://wa.me/${phone.replace(
+                                    '+',
+                                    ''
+                                )}?text=${encodeURIComponent('Hi. This is ')}`}
+                                target='_blank'
+                                rel='noopener noreferrer'
+                            >
+                                <MdChat
+                                    style={{ fontSize: '150%', color: 'green' }}
+                                />
+                            </a>
+                        </div>
+
+                        <div>
+                            <a
+                                href={`https://wa.me/${phone.replace(
+                                    '+',
+                                    ''
+                                )}?text=${encodeURIComponent('Hi. This is ')}`}
+                                target='_blank'
+                                rel='noopener noreferrer'
+                            >
+                                WhatsApp Message
+                            </a>
+                        </div>
                     </li>
                 )}
                 {address && (
